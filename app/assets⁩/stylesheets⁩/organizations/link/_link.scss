@@ -15,6 +15,7 @@ body.#{$theme} {
     .card__link,
     .muted-link,
     .author-data .author__name,
+    .author-data .author--inline time,
     a.external-link-container,
     .link {
         color: var(--primary-dark-10);
