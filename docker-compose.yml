@@ -1,42 +1,30 @@
+# This docker-compose is for demonstration purpose only.
+# Please changes credentials and user args for your production installation. 
+
 version: "3"
 services:
-  web:
-    image: nginx:1.21.4-alpine
-    command: nginx-debug -g 'daemon off;'
-    volumes:
-      - ./public:/public:ro
-      - .docker/nginx.http.conf:/etc/nginx/conf.d/default.conf
-    working_dir: /public
-    depends_on:
-      - app
-    ports:
-      - "8080:80"
-
-    networks:
-      - private
-      - default
-
   app:
     image: decidim
-    build: .
-    environment:
-      - DB_HOST=pg
-      - DB_USER=postgres
-      - DB_PASSWORD=my-insecure-pw
-      - RAILS_ENV=production
-      - RAILS_PORT=3000
-      - RAILS_MAX_THREAD=5
-      - SECRET_KEY_BASE=J9jEZgGFudNB4kEeqYHwoht4IQvinBhf
-      - FROM_MAILER_ADDRESS=me@domain.org
-      - APPLICATION_NAME=My application name
-      - LOG_LEVEL=debug
-      - ACTIVE_JOB_ADAPTER=delayed_job
+    build:
+      context: .
+      args:
+        # ===
+        # Non-root user configurations
+        # ===
+        # Your home directory will be /home/ocsin/app
+        USER: ocsin
+        USER_UID: 1000
+        GROUP: admin
+        GROUP_UID: 1000
+    env_file: .env
     ports:
       - 3000:3000
     networks:
+      - default
       - private
     depends_on:
       - pg
+      - redis
 
   pg:
     image: postgres:14
@@ -55,7 +43,10 @@ services:
       - private
 
   redis:  
-    image: redis
+    image: redis:4-alpine
+    command: redis-server --requirepass redis-insecure-password
+    networks:
+      - private
 
   mailer:  
     image: tophfr/mailcatcher
