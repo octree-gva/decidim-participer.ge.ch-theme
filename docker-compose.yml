@@ -5,17 +5,7 @@ version: "3"
 services:
   app:
     image: decidim
-    build:
-      context: .
-      args:
-        # ===
-        # Non-root user configurations
-        # ===
-        # Your home directory will be /home/ocsin/app
-        USER: ocsin
-        USER_UID: 1000
-        GROUP: admin
-        GROUP_UID: 1000
+    build: .
     env_file: .env
     ports:
       - 3000:3000
