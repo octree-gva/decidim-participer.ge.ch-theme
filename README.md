@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://github.com/octree-gva/meta/blob/main/decidim/static/header.svg?raw=true" alt="Decidim - Octree Participatory democracy on a robust and open source solution"></h1>
+<h1 align="center"><img src="https://github.com/octree-gva/meta/blob/main/decidim/static/header.png?raw=true" alt="Decidim - Octree Participatory democracy on a robust and open source solution"></h1>
 <h4 align="center">
     <a href="https://www.octree.ch">Octree</a> |
     <a href="https://octree.ch/en/contact-us/">Contact Us</a> |
@@ -36,5 +36,5 @@ To understand better how these repositories interact, I invite you to visit:
 
 <br /><br />
 <p align="center">
-    <img src="https://raw.githubusercontent.com/octree-gva/meta/main/decidim/static/octree_and_decidim.svg" height="90" alt="Decidim Installation by Octree" />
+    <img src="https://raw.githubusercontent.com/octree-gva/meta/main/decidim/static/octree_and_decidim.png" height="90" alt="Decidim Installation by Octree" />
 </p>
