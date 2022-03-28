@@ -24,7 +24,7 @@ build:latest:
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
-  needs: ["build:latest-dev"]
+  needs: ["build"]
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: always 
