@@ -6,15 +6,17 @@ body.#{$theme} {
     justify-content: space-between;
     align-items: center;
     margin-top: 32px;
-
-    & > img {
+    a, a:hover {
+        text-decoration: none;
+    }
+    img {
         max-height: 130px;
         flex: 0;
     }
 
     @include breakpoint(medium) { 
         justify-content: center;
-        & > img {
+        img {
             margin: 8px;
         }
     }
